@@ -1,0 +1,10 @@
+.footer {
+    margin: 0 auto;
+    color: #aaaaaa;
+    width: max-content;
+    padding-bottom: 15px;
+}
+
+.header-search {
+    max-width: max-content;
+}

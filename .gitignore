@@ -116,6 +116,7 @@ dist
 /build
 
 # misc
+src/.DS_Store
 .DS_Store
 .env.local
 .env.development.local
