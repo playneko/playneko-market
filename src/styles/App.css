@@ -1,3 +1,7 @@
+button:focus {
+    outline: none;
+}
+
 .footer {
     margin: 0 auto;
     color: #aaaaaa;
@@ -7,4 +11,29 @@
 
 .header-search {
     max-width: max-content;
+}
+
+.login-form {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    max-height: fit-content;
+    vertical-align: middle;
+}
+
+.login-form > div.alert {
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.login-form > form {
+    position: relative;
+    padding: 1rem;
+    border: .2rem solid #ececec;
+    border-radius: 8px;
+    margin-right: 25px;
+    margin-left: 25px;
+    color: #212529;
+    vertical-align: middle;
 }

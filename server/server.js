@@ -1,6 +1,6 @@
 const express = require('express');
 // const cors = require('cors');
-var logger = require('morgan');
+// var logger = require('morgan');
 var session = require('express-session')
 var FileStore = require('session-file-store')(session)
 // var cookieParser = require('cookie-parser');
