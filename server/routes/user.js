@@ -38,7 +38,8 @@ router.post('/login', [
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
-            throw error;
+            const errors = [{msg: "에러가 발생했습니다."}];
+            return res.status(500).json({ errors: errors });
         } else {
             const result = rows[0];
             if (result.cnt < 1) {
@@ -82,7 +83,7 @@ router.post('/registry', [
     var sql = "";
     sql += " INSERT INTO shop_member ";
     sql += " (no, project_id, user_id, user_pass, user_name, user_tel, user_zip, user_add1, user_add2, user_email, user_joindate) ";
-    sql += " VALUES('', ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
+    sql += " VALUES(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
     var params = [
         body.projectId,
         body.userId,
@@ -97,9 +98,11 @@ router.post('/registry', [
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
-            throw error;
+            // console.log(error);
+            const errors = [{msg: "등록중 에러가 발생했습니다."}];
+            return res.status(500).json({ errors: errors });
         } else {
-            console.log(rows.insertId);
+            // console.log(rows.insertId);
             res.json({
                 success: true,
                 insertId: rows.insertId

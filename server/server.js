@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
+const cartRouter = require('./routes/cart');
+const orderRouter = require('./routes/order');
 
 const app = express();
 
@@ -22,25 +24,27 @@ app.use(bodyParser.json());
 // 라우터
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/cart', cartRouter);
+app.use('/order', orderRouter);
 
 // 서버 활성화
 app.listen(port, ()=>{
 	console.log(`Playneko Express Server v0.1`);
-	console.log(`            ┌──────────┐`);
-	console.log(`           ┌┤          ├┐`);
-	console.log(`           ││ Playneko ││`);
-	console.log(`           ││  Express ││`);
-	console.log(`           └┤          ├┘`);
-	console.log(`            ├──────────┤`);
-	console.log(`            │□  □  □  □│`);
-	console.log(`    ╔╦╦  ───┤          ├───────┻┳|―-∩`);
-	console.log(`    ╠╬╬╬╣ □ │          │ □ □ □ ┳┻|　　ヽ`);
-	console.log(`    ╠╬╬╬╣   │□  □  □  □│       ┻┳|　●  |`);
-	console.log(`    ╠╬╬╬╣ □ │          │ □ □ □ ┳┻|▼) _ノ`);
-	console.log(`    ╠╬╬╬╣   │ ┌──┬──┐  │       ┻┳|￣　)`);
-	console.log(`    ╠╬╬╬╣ □ │ │//‖//│  │ □ □ □ ┳ﾐ(￣ ／`);
-	console.log(`    ╚╩╩╩╝───┴─┴──┴──┴──┴───────┻┳T￣|`);
-	console.log(`   (C) Copyright 2021~ Playneko.`);
-	console.log(`--------------------------------------`);
+	console.log(`                ┌──────────┐`);
+	console.log(`               ┌┤          ├┐`);
+	console.log(`               ││ Playneko ││`);
+	console.log(`               ││  Express ││`);
+	console.log(`               └┤          ├┘`);
+	console.log(`                ├──────────┤`);
+	console.log(`                │□  □  □  □│`);
+	console.log(`        ╔╦╦  ───┤          ├───────┻┳|―-∩`);
+	console.log(`        ╠╬╬╬╣ □ │          │ □ □ □ ┳┻|　　ヽ`);
+	console.log(`        ╠╬╬╬╣   │□  □  □  □│       ┻┳|　●  |`);
+	console.log(`        ╠╬╬╬╣ □ │          │ □ □ □ ┳┻|▼) _ノ`);
+	console.log(`        ╠╬╬╬╣   │ ┌──┬──┐  │       ┻┳|￣　)`);
+	console.log(`        ╠╬╬╬╣ □ │ │//‖//│  │ □ □ □ ┳ﾐ(￣ ／`);
+	console.log(`        ╚╩╩╩╝───┴─┴──┴──┴──┴───────┻┳T￣|`);
+	console.log(`          (C) Copyright 2021~ Playneko.`);
+	console.log(`------------------------------------------------`);
     console.log(`Playneko Market React Express is running on ${port}`);
 });

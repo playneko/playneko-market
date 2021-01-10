@@ -26,7 +26,7 @@ const Warning = (errors) => {
 const Danger = () => {
   return (
     <Alert key="4" variant="danger">
-      등록중 에러가 발생했습니다.
+      에러가 발생했습니다.
     </Alert>
   );
 }
