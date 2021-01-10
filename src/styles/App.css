@@ -37,3 +37,11 @@ button:focus {
     color: #212529;
     vertical-align: middle;
 }
+
+.login-form_show {
+    display: block;
+}
+
+.login-form_hidden {
+    display: none;
+}

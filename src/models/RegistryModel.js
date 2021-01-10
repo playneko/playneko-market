@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
-const SessionModel = (props) => {
+const RegistryModel = () => {
     const [jsonData, setJsonData] = useState([]);
 
     // 메인 리스트 취득
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/user/isLogin');
+                const response = await axios.get('/user/registry');
                 // console.log(response);
                 setJsonData(response.data);
             } catch(e) {
@@ -16,9 +16,9 @@ const SessionModel = (props) => {
             }
         }
         fetchData();
-    }, [props]);
+    }, []);
 
     return jsonData;
 }
 
-export default SessionModel;
+export default RegistryModel;

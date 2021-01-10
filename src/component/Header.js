@@ -19,7 +19,7 @@ import SessionModel from "../models/SessionModel";
 // 스타일
 import Styles from "../styles/Styles";
 
-const Header = () => {
+const Header = (props) => {
     const classes = Styles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
@@ -38,6 +38,7 @@ const Header = () => {
     };
 
     const handleUserLogout = () => {
+      history.push("/logout");
       handleMenuClose();
     };
 
@@ -57,7 +58,7 @@ const Header = () => {
     );
 
     // 로그인 유무 취득
-    const isLoginData = SessionModel();
+    const isLoginData = SessionModel(props.params);
 
     return (
         <div className={classes.grow}>
