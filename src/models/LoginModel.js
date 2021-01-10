@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios'
 
 const LoginModel = ({account, setUsers, setError, setLoading}) => {
@@ -18,6 +18,9 @@ const LoginModel = ({account, setUsers, setError, setLoading}) => {
                     projectId: "9a27a65f138f8f6f4991323212ebb408",
                     userId: account.userId,
                     userPw: account.userPw
+                })
+                .catch(function (error) {
+                    return error.response;
                 });
             }
             // 데이터는 response.data 안에 들어있습니다.

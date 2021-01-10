@@ -10,11 +10,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // 모델
 import LoginModel from "../models/LoginModel";
 
-const Warning = (state) => {
-  const user = state;
+const Warning = (errors) => {
+  const lists = errors.errors;
   return (
     <Alert key="5" variant="warning">
-      {user.state.message}
+    {
+      lists.errors.map(item => (
+        <div>{item.msg}</div>
+      ))
+    }
     </Alert>
   );
 }
@@ -52,9 +56,6 @@ const Login = (props) => {
   };
 
   const handleRedirect = () => {
-    // props.login({
-    //   isLogin: true
-    // });
     props.params(true);
     history.push("/");
   };
@@ -71,7 +72,7 @@ const Login = (props) => {
           심플 쇼핑몰 로그인
         </Alert>
         {error != null ? <Danger /> : ""}
-        {users != null && users.success === false ? <Warning state={users} /> : ""}
+        {users != null && users.errors ? <Warning errors={users} /> : ""}
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicId">
             <Form.Label>아이디</Form.Label>

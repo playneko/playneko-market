@@ -30,7 +30,7 @@ const Logout = (props) => {
     history.push("/");
   };
 
-  // 로그인 성공의 경우
+  // 로그아웃 성공의 경우
   if (users != null && users.success === true) {
     handleRedirect();
   }

@@ -1,28 +1,12 @@
 const express = require('express');
-// const cors = require('cors');
-// var logger = require('morgan');
 var session = require('express-session')
 var FileStore = require('session-file-store')(session)
-// var cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 
 const app = express();
-
-// app.use(cors());
-// 세션 처리
-// app.use(cookieParser('secret code'));
-// app.use(session({
-//     resave: false,
-//     saveUninitialized: false,
-//     secret: 'secret code',
-//     cookie: {
-//         httpOnly: true,
-//         secure: false,
-//     },
-// }));
 
 // 세션정보 생성
 app.use(session({
