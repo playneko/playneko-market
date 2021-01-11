@@ -34,11 +34,11 @@ const Header = (props) => {
     };
 
     const handleUserLogin = () => {
-      history.push("/login");
+      history.push("/user/login");
     };
 
     const handleUserLogout = () => {
-      history.push("/logout");
+      history.push("/user/logout");
       handleMenuClose();
     };
 
@@ -82,12 +82,12 @@ const Header = (props) => {
             </div>
             <div className={classes.grow} />
             <div>
-              <IconButton aria-label="Shopping Cart" color="inherit" onClick={() => { history.push("/cart"); }}>
+              <IconButton aria-label="Shopping Cart" color="inherit" onClick={() => { history.push("/shop/cart"); }}>
                 <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? 1 : 0} color="secondary">
                   <ShoppingCart />
                 </Badge>
               </IconButton>
-              <IconButton aria-label="Order Info" color="inherit" onClick={() => { history.push("/order"); }}>
+              <IconButton aria-label="Order Info" color="inherit" onClick={() => { history.push("/shop/order"); }}>
                 <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? 1 : 0} color="secondary">
                   <Receipt />
                 </Badge>

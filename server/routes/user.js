@@ -31,9 +31,9 @@ router.post('/login', [
     var sql = "";
     sql += " SELECT count(*) as cnt ";
     sql += " FROM shop_member ";
-    sql += " WHERE project_id=? ";
-    sql += " AND user_id=? ";
-    sql += " AND user_pass=? ";
+    sql += " WHERE project_id = ? ";
+    sql += " AND user_id = ? ";
+    sql += " AND user_pass = ? ";
     var params = [body.projectId, body.userId, body.userPw];
 
     connection.query(sql, params, (error, rows, fields) => {
@@ -110,5 +110,7 @@ router.post('/registry', [
         }
     });
 });
+
+connection.end;
 
 module.exports = router;

@@ -52,7 +52,7 @@ const Login = (props) => {
   };
 
   const handleRegistry = () => {
-    history.push("/registry");
+    history.push("/user/registry");
   };
 
   const handleRedirect = () => {

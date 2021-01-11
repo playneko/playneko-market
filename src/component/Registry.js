@@ -58,7 +58,7 @@ const Registry = () => {
   };
 
   const handleRedirect = () => {
-    history.push("/login");
+    history.push("/user/login");
   };
 
   // 회원가입 성공의 경우

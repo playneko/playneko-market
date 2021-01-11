@@ -3,10 +3,10 @@ var session = require('express-session')
 var FileStore = require('session-file-store')(session)
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
-const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const cartRouter = require('./routes/cart');
 const orderRouter = require('./routes/order');
+const categoryRouter = require('./routes/category');
 
 const app = express();
 
@@ -22,10 +22,10 @@ app.use(session({
 app.use(bodyParser.json());
 
 // 라우터
-app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
+app.use('/category', categoryRouter);
 
 // 서버 활성화
 app.listen(port, ()=>{

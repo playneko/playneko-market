@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 // 컴포넌트
 // 타이틀
@@ -18,7 +19,6 @@ import Logout from "./component/Logout";
 import Registry from "./component/Registry";
 // Footer
 import Footer from "./component/Footer";
-
 // CSS
 import './styles/App.css';
 
@@ -39,6 +39,7 @@ const colorTheme = createMuiTheme({
 function App() {
   // 타이틀 변경
   useTitle("Playneko - 심플 쇼핑몰");
+
   const [isLogin, setIsLogin] = React.useState(0);
   const [myTheme, setMyTheme] = React.useState(colorTheme);
 
@@ -54,12 +55,14 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={myTheme}>
+        <CssBaseline />
         <Header params={isLogin} />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/login" render={() => <Login params={handleLoginout} />} />
-          <Route path="/logout" render={() => <Logout params={handleLoginout} />} />
-          <Route path="/registry" render={() => <Registry />} />
+          <Route path="/page/:page" component={Home} />
+          <Route path="/user/login" render={() => <Login params={handleLoginout} />} />
+          <Route path="/user/logout" render={() => <Logout params={handleLoginout} />} />
+          <Route path="/user/registry" render={() => <Registry />} />
         </Switch>
         <Footer />
       </ThemeProvider>
