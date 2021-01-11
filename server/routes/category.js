@@ -7,12 +7,12 @@ const CONST_LIST_PAGE_MAX = 8;
 router.get('/count', (req, res) => {
     const body = req.query;
 
-    var sql = "";
+    let sql = "";
     sql += " SELECT count(*) as cnt ";
     sql += " FROM shop_goods ";
     sql += " WHERE project_id = ? ";
     sql += " AND goods_status > 0 ";
-    var params = [body.projectid];
+    let params = [body.projectid];
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
@@ -29,9 +29,9 @@ router.get('/count', (req, res) => {
 router.get('/list', (req, res) => {
     const body = req.query;
 
-    var thisPage = 0;
-    var pageStart = 0;
-    var pageEnd = 0;
+    let thisPage = 0;
+    let pageStart = 0;
+    let pageEnd = 0;
     if (!body.page) {
         thisPage = 0;
     } else {

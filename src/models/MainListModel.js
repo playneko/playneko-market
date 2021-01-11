@@ -10,7 +10,7 @@ const MainListModel = ({page, setListData, setError, setLoading}) => {
             setLoading(true);
 
             // GET 전송
-            var response = await axios.get('/category/count?projectid=9a27a65f138f8f6f4991323212ebb408')
+            let response = await axios.get('/category/count?projectid=9a27a65f138f8f6f4991323212ebb408')
             .catch(function (error) {
                 return error.response;
             });

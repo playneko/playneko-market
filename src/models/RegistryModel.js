@@ -8,7 +8,7 @@ const RegistryModel = ({account, setUsers, setError, setLoading}) => {
             // 요청이 시작 할 때에는 error 와 users 를 초기화하고
             setError(null);
             setUsers(null);
-            var response = {};
+            let response = {};
 
             if (account != null && account.userRegistry === true) {
                 // loading 상태를 true 로 바꿉니다.

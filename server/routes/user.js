@@ -5,7 +5,7 @@ const router = express.Router();
 
 // 로그인 유무체크
 router.get('/isLogin', (req, res) => {
-    var isLogin = false;
+    let isLogin = false;
     if (req.session.isLogin === undefined) {
         isLogin = false;
     } else {
@@ -28,13 +28,13 @@ router.post('/login', [
     }
 
     const body = req.body;
-    var sql = "";
+    let sql = "";
     sql += " SELECT count(*) as cnt ";
     sql += " FROM shop_member ";
     sql += " WHERE project_id = ? ";
     sql += " AND user_id = ? ";
     sql += " AND user_pass = ? ";
-    var params = [body.projectId, body.userId, body.userPw];
+    let params = [body.projectId, body.userId, body.userPw];
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
@@ -80,11 +80,11 @@ router.post('/registry', [
     }
 
     const body = req.body;
-    var sql = "";
+    let sql = "";
     sql += " INSERT INTO shop_member ";
     sql += " (no, project_id, user_id, user_pass, user_name, user_tel, user_zip, user_add1, user_add2, user_email, user_joindate) ";
     sql += " VALUES(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
-    var params = [
+    let params = [
         body.projectId,
         body.userId,
         body.userPw,

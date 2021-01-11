@@ -70,7 +70,7 @@ const Home = (props) => {
   }
 
   // 페이지 번호
-  var page = 1;
+  let page = 1;
   if (props.match != null) {
     page = props.match.params.page;
   }
