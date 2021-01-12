@@ -1,12 +1,13 @@
 const express = require('express');
-var session = require('express-session')
+var session = require('express-session');
 var FileStore = require('session-file-store')(session)
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3001;
 const userRouter = require('./routes/user');
 const cartRouter = require('./routes/cart');
 const orderRouter = require('./routes/order');
+const detailRouter = require('./routes/detail');
 const categoryRouter = require('./routes/category');
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use('/user', userRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
+app.use('/detail', detailRouter);
 app.use('/category', categoryRouter);
 
 // 서버 활성화

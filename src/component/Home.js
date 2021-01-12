@@ -1,17 +1,16 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import Pagination from '@material-ui/lab/Pagination';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import CardContent from '@material-ui/core/CardContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 // 컴포넌트
 // 모델
-// import MainListModel from "../models/MainListModel";
 import PageListModel from "../models/PageListModel";
 
 const Danger = () => {
@@ -65,32 +64,37 @@ const Home = (props) => {
   const classes = useStyles();
 
   // 페이지 전환
-  const onPageChange = ({page}) => {
-    history.push("/page/" + page);
+  const onPageChange = ({page, keyword}) => {
+    keyword != null && keyword.length > 0 ? history.push("/search/" + keyword + "/" + page) : history.push("/page/" + page);
   }
 
   // 페이지 번호
   let page = 1;
+  let keyword = "";
   if (props.match != null) {
-    page = props.match.params.page;
+    page = props.match.params.page != null ? props.match.params.page : 1;
+    keyword = props.match.params.keyword != null ? props.match.params.keyword : "";
   }
 
   // 페이지 로드
-  PageListModel({page, setListData, setError, setLoading});
+  PageListModel({page, keyword, setListData, setError, setLoading});
 
   if (listData.list != null && listData.list.length > 0) {
     return (
       <>
         <div className="mainStyle-root mainStyle-content">
+        {error != null ? <Danger /> : ""}
         {
           listData.list.map(item => (
             <div className={classes.mediaLeft}>
               <Card className={classes.root}>
-                <CardMedia
-                  className={classes.media + " cardStyle-media"}
-                  image={item.goods_image}
-                  title={item.goods_title}
-                />
+                <NavLink to={"/detail/" + item.no}>
+                  <CardMedia
+                    className={classes.media + " cardStyle-media"}
+                    image={item.goods_image}
+                    title={item.goods_title}
+                  />
+                </NavLink>
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                       {item.goods_title}<br/>
@@ -103,7 +107,7 @@ const Home = (props) => {
         }
         </div>
         <div className={classes.root + " mainStyle-pagination"}>
-          <Pagination count={listData.paging.total} shape="rounded" onChange={(event, page) => onPageChange({page})} />
+          <Pagination count={listData.paging.total} shape="rounded" onChange={(event, page) => onPageChange({page, keyword})} />
         </div>
       </>
     );

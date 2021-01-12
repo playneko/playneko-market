@@ -11,6 +11,8 @@ import Title from "./component/Title";
 import Header from "./component/Header";
 // Home
 import Home from "./component/Home";
+// 상세페이지
+import Detail from './component/Detail';
 // 로그인
 import Login from "./component/Login";
 // 로그아웃
@@ -60,6 +62,9 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/page/:page" component={Home} />
+          <Route path="/search/:keyword/:page" component={Home} />
+          <Route path="/search/:keyword" component={Home} />
+          <Route path="/detail/:detail" component={Detail} />
           <Route path="/user/login" render={() => <Login params={handleLoginout} />} />
           <Route path="/user/logout" render={() => <Logout params={handleLoginout} />} />
           <Route path="/user/registry" render={() => <Registry />} />

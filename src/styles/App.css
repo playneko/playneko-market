@@ -92,6 +92,37 @@ button:focus {
         height: 350px !important;
         margin-top: 0px !important;
     }
+    .detailStyle-content {
+        width: 950px;
+        margin: 0 auto;
+        margin-top: 55px;
+        margin-bottom: 55px;
+        max-height: 950px;
+    }
+    .detailStyle-div_left {
+        float: left;
+        padding-left: 50px;
+    }
+    .detailStyle-div_title {
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .detailStyle-div_sale {
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .detailStyle-div_both {
+        clear: both;
+    }
+    .detailCardStyle-media {
+        width: 350px;
+        height: 350px !important;
+        min-width: 500px !important;
+        max-width: 500px !important;
+        min-height: 500px !important;
+        max-height: 500px !important;
+        margin-top: 0px !important;
+    }
 }
 
 /*

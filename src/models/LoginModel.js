@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const LoginModel = ({account, setUsers, setError, setLoading}) => {
 
-    const fetchUsers = async () => {
+    const fetchDatas = async () => {
         try {
             // 요청이 시작 할 때에는 error 와 users 를 초기화하고
             setError(null);
@@ -32,7 +32,7 @@ const LoginModel = ({account, setUsers, setError, setLoading}) => {
     };
 
     useEffect(() => {
-        fetchUsers();
+        fetchDatas();
     }, [account]);
 }
 

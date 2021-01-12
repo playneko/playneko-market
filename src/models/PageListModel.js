@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import axios from 'axios'
 
-const PageListModel = ({page, setListData, setError, setLoading}) => {
+const PageListModel = ({page, keyword, setListData, setError, setLoading}) => {
 
     const fetchDatas = async () => {
         try {
@@ -10,17 +10,22 @@ const PageListModel = ({page, setListData, setError, setLoading}) => {
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
 
-            // GET 전송
-            let response = await axios.get('/category/count?projectid=9a27a65f138f8f6f4991323212ebb408')
+            // POST 전송
+            let response = await axios.post('/category/count', {
+                projectId: "9a27a65f138f8f6f4991323212ebb408",
+                keyword: keyword
+            })
             .catch(function (error) {
                 return error.response;
             });
             if (response.data != null) {
-                // GET 전송
-                response = await axios.get('/category/list?page=' + page
-                    + '&count=' + response.data.cnt
-                    + '&projectid=9a27a65f138f8f6f4991323212ebb408'
-                )
+                // POST 전송
+                response = await axios.post('/category/list', {
+                    projectId: "9a27a65f138f8f6f4991323212ebb408",
+                    page: page,
+                    count: response.data.cnt,
+                    keyword: keyword
+                })
                 .catch(function (error) {
                     return error.response;
                 });
@@ -36,7 +41,7 @@ const PageListModel = ({page, setListData, setError, setLoading}) => {
 
     useEffect(() => {
         fetchDatas();
-    }, [page]);
+    }, [page, keyword]);
 }
 
 export default PageListModel;

@@ -25,21 +25,35 @@ const Header = (props) => {
     const isMenuOpen = Boolean(anchorEl);
     let history = useHistory();
 
+    // 로그인 유무 취득
+    const isLoginData = SessionModel(props.params);
+
+    // 메뉴열기
     const handleProfileMenuOpen = (event) => {
       setAnchorEl(event.currentTarget);
     };
 
+    // 메뉴숨기기
     const handleMenuClose = () => {
       setAnchorEl(null);
     };
 
+    // 로그인
     const handleUserLogin = () => {
       history.push("/user/login");
     };
 
+    // 로그아웃
     const handleUserLogout = () => {
       history.push("/user/logout");
       handleMenuClose();
+    };
+
+    // 검색
+    const handleSearch = (event, history) => {
+      if (event.code === 'Enter') {
+        history.push('/search/' + event.target.value);
+      }
     };
 
     const menuId = 'primary-search-account-menu';
@@ -56,9 +70,6 @@ const Header = (props) => {
         <MenuItem onClick={handleUserLogout}>로그아웃</MenuItem>
       </Menu>
     );
-
-    // 로그인 유무 취득
-    const isLoginData = SessionModel(props.params);
 
     return (
         <div className={classes.grow}>
@@ -78,6 +89,7 @@ const Header = (props) => {
                   input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
+                onKeyPress={(event, val) => handleSearch(event, history)}
               />
             </div>
             <div className={classes.grow} />

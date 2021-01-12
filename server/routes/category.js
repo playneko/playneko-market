@@ -4,15 +4,16 @@ const connection = require('../sql/mysql');
 const router = express.Router();
 const CONST_LIST_PAGE_MAX = 8;
 
-router.get('/count', (req, res) => {
-    const body = req.query;
+router.post('/count', (req, res) => {
+    const body = req.body;
 
     let sql = "";
     sql += " SELECT count(*) as cnt ";
     sql += " FROM shop_goods ";
     sql += " WHERE project_id = ? ";
     sql += " AND goods_status > 0 ";
-    let params = [body.projectid];
+    body.keyword ? sql += " AND goods_title like '%" + body.keyword + "%' " : "";
+    let params = [body.projectId];
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
@@ -26,8 +27,8 @@ router.get('/count', (req, res) => {
     });
 });
 
-router.get('/list', (req, res) => {
-    const body = req.query;
+router.post('/list', (req, res) => {
+    const body = req.body;
 
     let thisPage = 0;
     let pageStart = 0;
@@ -44,13 +45,14 @@ router.get('/list', (req, res) => {
     pageEnd = CONST_LIST_PAGE_MAX;
 
     sql = "";
-    sql += " SELECT goods_category, goods_title, goods_sell, goods_sale, goods_point, goods_image ";
+    sql += " SELECT no, goods_category, goods_title, goods_sell, goods_sale, goods_point, goods_image ";
     sql += " FROM shop_goods ";
     sql += " WHERE project_id = ? ";
     sql += " AND goods_status > 0 ";
+    body.keyword ? sql += " AND goods_title like '%" + body.keyword + "%' " : "";
     sql += " ORDER BY goods_sort DESC ";
     sql += " LIMIT ?, ? ";
-    params = [body.projectid, pageStart, pageEnd];
+    let params = [body.projectId, pageStart, pageEnd];
 
     connection.query(sql, params, (error, rows, fields) => {
         if (error) {
