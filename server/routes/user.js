@@ -46,6 +46,7 @@ router.post('/login', [
                 return res.status(400).json({ errors: [{msg: "아이디 또는 비밀번호가 일치하지 않습니다."}] });
             } else {
                 req.session.isLogin = true;
+                req.session.userId = body.userId;
                 res.json({
                     success: true
                 })

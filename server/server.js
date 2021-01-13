@@ -6,6 +6,7 @@ const userRouter = require('./routes/user');
 const cartRouter = require('./routes/cart');
 const orderRouter = require('./routes/order');
 const detailRouter = require('./routes/detail');
+const headerRouter = require('./routes/header');
 const categoryRouter = require('./routes/category');
 const port = process.env.PORT || 3001;
 
@@ -27,6 +28,7 @@ app.use('/user', userRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
 app.use('/detail', detailRouter);
+app.use('/header', headerRouter);
 app.use('/category', categoryRouter);
 
 // 서버 활성화

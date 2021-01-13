@@ -38,7 +38,7 @@ button:focus {
     vertical-align: middle;
 }
 
-.login-form_show, .div-form_show {
+.detailStyle-div_show {
     display: block;
     text-align: center;
 }
@@ -61,6 +61,18 @@ button:focus {
     clear: both;
     margin: 0 auto;
     margin-bottom: 20px;
+}
+
+.div-form_show {
+    display: block;
+    padding: 150px;
+    text-align: center;
+}
+
+.div-form_hidden {
+    display: block;
+    padding: 150px;
+    text-align: center;
 }
 
 /*
@@ -111,8 +123,41 @@ button:focus {
         font-weight: bold;
         font-size: 25px;
     }
+    .detailStyle-div_button {
+        padding-top: 10px;
+    }
+    .detailStyle-div_button > button {
+        width: 150px;
+        padding: 10px;
+    }
+    .detailStyle-div_button_soldout {
+        width: 150px;
+        padding: 15px;
+        color: #ffffff;
+        border-radius: 5px;
+        background: #ff8989;
+    }
+    .detailStyle-div_button_login {
+        width: 200px;
+        padding: 15px;
+        color: #000000;
+        border-radius: 5px;
+        background: #ffda5f;
+    }
+    .detailStyle-div_show {
+        display: block;
+    }
+    .detailStyle-div_hidden {
+        display: none;
+    }
     .detailStyle-div_both {
         clear: both;
+        width: 100%;
+        padding-top: 35px;
+        padding-bottom: 35px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin: 0 auto !important;
     }
     .detailCardStyle-media {
         width: 350px;

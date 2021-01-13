@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
-const SessionModel = (props) => {
+const HeaderModel = (props) => {
     const [jsonData, setJsonData] = useState([]);
 
     // 메인 리스트 취득
     const fetchDatas = async () => {
         try {
             // POST 전송
-            let response = await axios.get('/user/isLogin')
+            let response = await axios.get('/header/count')
             .catch(function (error) {
                 console.log(error);
             });
@@ -25,4 +25,4 @@ const SessionModel = (props) => {
     return jsonData;
 }
 
-export default SessionModel;
+export default HeaderModel;

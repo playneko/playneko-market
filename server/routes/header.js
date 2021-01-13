@@ -1,10 +1,9 @@
 const express = require('express');
+const connection = require('../sql/mysql');
 const router = express.Router();
 
-router.get('/', (req, res) => res.json({lists: "order"}));
-
-// 바로구매
-router.post('/buy', (req, res) => {
+// 장바구니 갯수/주문건수
+router.post('/count', (req, res) => {
     const body = req.body;
 });
 
