@@ -122,7 +122,7 @@ const Detail = (props) => {
   const classes = useStyles();
 
   // 로그인 유무 취득
-  const isLoginData = SessionModel(props.params);
+  const isLoginData = SessionModel(props.params, null);
 
   // 상세페이지 번호
   let detailNo = 0;

@@ -22,11 +22,12 @@ import Styles from "../styles/Styles";
 const Header = (props) => {
     const classes = Styles();
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [headerData, setHeaderData] = React.useState([]);
     const isMenuOpen = Boolean(anchorEl);
     let history = useHistory();
 
     // 로그인 유무 취득
-    const isLoginData = SessionModel(props.params);
+    const isLoginData = SessionModel(props.params, setHeaderData);
 
     // 메뉴열기
     const handleProfileMenuOpen = (event) => {
@@ -95,12 +96,12 @@ const Header = (props) => {
             <div className={classes.grow} />
             <div>
               <IconButton aria-label="Shopping Cart" color="inherit" onClick={() => { history.push("/shop/cart"); }}>
-                <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? 1 : 0} color="secondary">
+                <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? headerData != null && headerData.success ? headerData.cartCnt : 0 : 0} color="secondary">
                   <ShoppingCart />
                 </Badge>
               </IconButton>
               <IconButton aria-label="Order Info" color="inherit" onClick={() => { history.push("/shop/order"); }}>
-                <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? 1 : 0} color="secondary">
+                <Badge badgeContent={isLoginData != null && isLoginData.isLogin ? headerData != null && headerData.success ? headerData.orderCnt : 0 : 0} color="secondary">
                   <Receipt />
                 </Badge>
               </IconButton>
