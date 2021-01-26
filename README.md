@@ -17,10 +17,10 @@ Express.jsのためにDEMOページはありません。
 ### 화면 캡쳐
 ### 画面キャプチャー
 
-![image](https://github.com/playneko/playneko-market/blob/main/public/capture/001.png?raw=true)
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/001.jpg?raw=true)
 
 ![image](https://github.com/playneko/playneko-market/blob/main/public/capture/002.png?raw=true)
 
 ![image](https://github.com/playneko/playneko-market/blob/main/public/capture/003.png?raw=true)
 
-![image](https://github.com/playneko/playneko-market/blob/main/public/capture/004.png?raw=true)
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/004.jpg?raw=true)
