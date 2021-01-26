@@ -13,3 +13,14 @@ Express.js로 인해 데모페이지는 아직 없습니다.
 ReactとExpress.js + MySqlを利用して開発したシンプルショッピングモールです。
 まだ開発中なので、一部の機能しかできていません。
 Express.jsのためにDEMOページはありません。
+
+### 화면 캡쳐
+### 画面キャプチャー
+
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/001.png?raw=true)
+
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/002.png?raw=true)
+
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/003.png?raw=true)
+
+![image](https://github.com/playneko/playneko-market/blob/main/public/capture/004.png?raw=true)
